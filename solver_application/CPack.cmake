@@ -3,7 +3,7 @@ set(CPACK_PACKAGE_CONTACT ${GITHUB_EMAIL})
 
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Hello! It is my cpack")
 
-set(CPACK_PACKAGE_NAME "solver")
+set(CPACK_PACKAGE_NAME "Solver")
 
 option(GENERATOR "DEB")
 
