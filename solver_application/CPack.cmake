@@ -1,26 +1,27 @@
-cmake_minimum_required(VERSION 3.5)
+include(InstallRequiredSystemLibraries)
+set(CPACK_PACKAGE_CONTACT ${GITHUB_EMAIL})
 
-project(Solver)
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "CPack ukidoshi package's")
 
-add_executable(solver solver.cpp)
+set(CPACK_PACKAGE_NAME "solver")
 
-add_library(formatter_lib STATIC ../formatter_lib/formatter.cpp)
-add_library(formatter_ex_lib STATIC ../formatter_ex_lib/formatter_ex.cpp)
-add_library(solver_lib SHARED ../solver_lib/solver.cpp)
+option(GENERATOR "")
 
-target_link_libraries(solver_lib formatter_lib formatter_ex_lib)
+if(${GENERATOR} MATCHES BIN)
+        set(CPACK_DEBIAN_PACKAGE_MAINTAINER "ukidoshi")
+        install(TARGETS solver DESTINATION bin)
+endif()
 
-install(TARGETS solver solver_lib
-RUNTIME DESTINATION bin
-LIBRARY DESTINATION lib)
+if(${GENERATOR} MATCHES ARC)
+	install(FILES equation.cpp
+	              ../formatter_lib/formatter.cpp
+		      ../formatter_ex_lib/formatter_ex.cpp
+		      ../solver_lib/solver.cpp
+		DESTINATION code)
+	install(TARGETS formatter_ex solver_lib LIBRARY DESTINATION lib)
+endif()
 
-install(FILES equation.cpp
-DESTINATION code)
 
-set(CPACK_GENERATOR "DEB")
-set(CPACK_PACKAGE_NAME "Solver")
-set(CPACK_PACKAGE_VERSION "1.0.0")
-set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Birdswift inc.")
-set(CPACK_PACKAGE_DESCRIPTION "Solver")
+install(TARGETS solver DESTINATION bin)
 
 include(CPack)
