@@ -15,16 +15,16 @@ jobs:
   - uses: actions/checkout@v3
 
   - name: Configure Solver
-    run: cmake ${{github.workspace}}/solver_application/ -B ${{github.workspace}}/solver_application/build
+    run: cmake ${{github.workspace}}/solver_application/ -B ${{github.workspace}}/solver_applicatio
 
   - name: Build Solver
-    run: cmake --build ${{github.workspace}}/solver_application/build
+    run: cmake --build ${{github.workspace}}/solver_application
 
   - name: Configure HelloWorld
-    run: cmake ${{github.workspace}}/hello_world_application/ -B ${{github.workspace}}/hello_world_application/build
+    run: cmake ${{github.workspace}}/hello_world_application/ -B ${{github.workspace}}/hello_world_application
 
   - name: Build HelloWorld
-    run: cmake --build ${{github.workspace}}/hello_world_application/build
+    run: cmake --build ${{github.workspace}}/hello_world_application
 
  build_Windows:
 
@@ -34,13 +34,13 @@ jobs:
   - uses: actions/checkout@v3
 
   - name: Configure Solver
-    run: cmake ${{github.workspace}}/solver_application/ -B ${{github.workspace}}/solver_application/build
+    run: cmake ${{github.workspace}}/solver_application/ -B ${{github.workspace}}/solver_application
 
   - name: Build Solver
-    run: cmake --build ${{github.workspace}}/solver_application/build
+    run: cmake --build ${{github.workspace}}/solver_application
 
   - name: Configure HelloWorld
-    run: cmake ${{github.workspace}}/hello_world_application/ -B ${{github.workspace}}/hello_world_application/build
+    run: cmake ${{github.workspace}}/hello_world_application/ -B ${{github.workspace}}/hello_world_application
 
   - name: Build HelloWorld
-    run: cmake --build ${{github.workspace}}/hello_world_application/build
+    run: cmake --build ${{github.workspace}}/hello_world_application
