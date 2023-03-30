@@ -1,14 +1,14 @@
 include(InstallRequiredSystemLibraries)
 set(CPACK_PACKAGE_CONTACT ${GITHUB_EMAIL})
 
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "CPack ukidoshi package's")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Hello! It is my cpack")
 
 set(CPACK_PACKAGE_NAME "solver")
 
-option(GENERATOR "")
+option(GENERATOR "DEB")
 
 if(${GENERATOR} MATCHES BIN)
-        set(CPACK_DEBIAN_PACKAGE_MAINTAINER "ukidoshi")
+        set(CPACK_DEBIAN_PACKAGE_MAINTAINER "birdswift")
         install(TARGETS solver DESTINATION bin)
 endif()
 
