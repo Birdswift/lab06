@@ -26,8 +26,24 @@ jobs:
     - name: Build source package
       run: cmake --build ${{github.workspace}}/build --target package_source
 
-    - name: Make a release
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "build/*.deb,build/*.tar.gz,build/*.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
+   - name: Upload TGZ
+      id  : TGZ
+      uses: actions/upload-release-asset@v1
+      env :
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with: 
+       upload_url: ${{ needs.Make_GitHub_Release.outputs.upload_url }}
+       asset_path: ./cmake/solver-0.1.1-Linux.tar.gz
+       asset_name: Solver-${{ github.ref_name }}.tar.gz
+       asset_content_type: code/tgz
+       
+    - name: Upload ZIP
+      id  : ZIP
+      uses: actions/upload-release-asset@v1
+      env :
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with: 
+       upload_url: ${{ needs.Make_GitHub_Release.outputs.upload_url }}
+       asset_path: ./cmake/solver-0.1.1-Linux.zip
+       asset_name: Solver-${{ github.ref_name }}.zip
+       asset_content_type: code/zip
