@@ -4,7 +4,7 @@ include(InstallRequiredSystemLibraries)
 #Задаём кучу переменных
 set(CPACK_PACKAGE_CONTACT gkrasin14@gmail.com)
 set(CPACK_PACKAGE_VERSION ${PRINT_VERSION})
-set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/DESCRIPTION)
+
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "C++ app for solving quadratic equations")
 
 # Говорим что игнорить
