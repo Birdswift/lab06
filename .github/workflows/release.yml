@@ -15,7 +15,7 @@ jobs:
                         
     - name: Release
       id  : create_release
-      uses: actions/create-release@v2.303.0
+      uses: actions/create-release@v1.10.0
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -46,7 +46,7 @@ jobs:
         cpack -G ZIP
     - name: Upload TGZ
       id  : TGZ
-      uses: actions/upload-release-asset@v2.303.0
+      uses: actions/upload-release-asset@v1.10.0
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -57,7 +57,7 @@ jobs:
        
     - name: Upload ZIP
       id  : ZIP
-      uses: actions/upload-release-asset@v2.303.0
+      uses: actions/upload-release-asset@v1.10.0
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -87,7 +87,7 @@ jobs:
         
     - name: Upload DEB
       id  : DEB
-      uses: actions/upload-release-asset@v2.303.0
+      uses: actions/upload-release-asset@v1.10.0
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
@@ -98,7 +98,7 @@ jobs:
        
     - name: Upload RPM
       id  : RPM
-      uses: actions/upload-release-asset@v2.303.0
+      uses: actions/upload-release-asset@v1.10.0
       env :
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with: 
