@@ -8,3 +8,10 @@ add_executable(solver ${CMAKE_CURRENT_SOURCE_DIR}/src/equation.cpp)
 target_include_directories(formatter_ex_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../formatter_ex_lib/src ${CMAKE_CURRENT_SOURCE_DIR}/../solver_lib/src)
 target_link_libraries(solver formatter_ex_lib solver_lib)
 
+# Инструкции для инсталляции
+install(TARGETS solver
+    RUNTIME DESTINATION bin
+)
+
+# Дальше "передаём управление" CPack-у
+include(CPack.cmake)
