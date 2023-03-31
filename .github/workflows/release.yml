@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
     - name: Configure Solver
       run: cmake ${{github.workspace}} -B ${{github.workspace}}/build -D PRINT_VERSION=${GITHUB_REF_NAME#v}
@@ -30,4 +30,4 @@ jobs:
       uses: ncipollo/release-action@v1.10.0
       with:
         artifacts: "build/*.deb,build/*.tar.gz,build/*.zip"
-        token: ${{ $GITHUB_TOKEN  }}
+      token: ${{ secrets.MY_PAT }}
