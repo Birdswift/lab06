@@ -3,7 +3,7 @@ include(InstallRequiredSystemLibraries)
 set(CPACK_PACKAGE_CONTACT gkrasin14@gmail.com)
 set(CPACK_PACKAGE_VERSION ${PRINT_VERSION})
 
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "test")
 
 set(CPACK_SOURCE_IGNORE_FILES 
 "\\\\.cmake;/build/;/.git/;/.github/"
